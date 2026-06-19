@@ -26,3 +26,4 @@ C:\Users\jstee\Documents\net-town-builder\net\backend\obj\Debug\net10.0\refint\b
 C:\Users\jstee\Documents\net-town-builder\net\backend\obj\Debug\net10.0\backend.pdb
 C:\Users\jstee\Documents\net-town-builder\net\backend\obj\Debug\net10.0\backend.genruntimeconfig.cache
 C:\Users\jstee\Documents\net-town-builder\net\backend\obj\Debug\net10.0\ref\backend.dll
+C:\Users\jstee\Documents\net-town-builder\net\backend\obj\Debug\net10.0\backend.sourcelink.json

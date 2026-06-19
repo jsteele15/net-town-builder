@@ -1,18 +1,38 @@
 <script setup>
 import { ref, onMounted } from "vue";
 
-const message = ref("");
+import Player from "./core/player.vue";
 
+const message = ref("");
+const count = ref(0);
+const scoreFromServer = ref(0);
 onMounted(async () => {
   const res = await fetch("http://localhost:5096/api/message");
   const data = await res.json();
   message.value = data.text;
 });
 
+function increase(){
+  count.value++
+};
+
+async function sendScore(value){
+  const res = await fetch("http://localhost:5096/api/score",{
+    method: "POST",
+    headers: { "Content-Type": "application/json"},
+    body: JSON.stringify({ value })
+  });
+  const data = await res.json();
+  scoreFromServer.value = data.total;
+}
+
 </script>
 
 <template>
+  <Player/>
   <p>{{ message }}</p>
+  <p>Server score: {{ scoreFromServer }}</p>
+  <button @click="sendScore(count.value)">click me</button>
 </template>
 
 <style scoped>
