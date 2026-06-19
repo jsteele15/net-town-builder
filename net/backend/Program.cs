@@ -36,14 +36,20 @@ var playerCities = new Dictionary<string, int>
 };
 
 app.UseCors();
-
+// This endpoint will return a message to the frontend when called.
 app.MapGet("/api/message", () => new { text = "Hello from .NET!" });
 
+app.MapGet("/api/game-map", () => new { map = gameMap });
+
+app.MapGet("/api/player-cities", () => new { cities = playerCities });
+
+// This endpoint will receive the score from the frontend and return a response indicating that the score has been saved.
 app.MapPost("/api/score", (Score score) =>
 {
     count++;
     return Results.Ok(new { status = "saved", total = count });;
 });
+
 
 app.Run();
 record Score(int Value);
